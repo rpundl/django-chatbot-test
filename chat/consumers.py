@@ -37,10 +37,7 @@ class ChatConsumer(WebsocketConsumer):
                     response_message = f'Wrong arguments for the command `{command}`.'
                 else:
                     getattr(tasks, COMMANDS[command]['task']).delay(self.channel_name, *message_parts[1:])
-                    if command=='sum':
-                        response_message = int(message_parts[1]) + int(message_parts[2])
-                    else:
-                        response_message = f'Command `{command}` received.'
+                    response_message = f'Command `{command}` received.'
         
         async_to_sync(self.channel_layer.send)(
                 self.channel_name,
