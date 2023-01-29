@@ -21,6 +21,8 @@ COMMANDS = {
     },
 }
 
+print("This is the task being imported")
+print(tasks)
 class ChatConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
@@ -37,6 +39,8 @@ class ChatConsumer(WebsocketConsumer):
                     response_message = f'Wrong arguments for the command `{command}`.'
                 else:
                     getattr(tasks, COMMANDS[command]['task']).delay(self.channel_name, *message_parts[1:])
+                    print("Below is the task being activated for the requested operation")
+                    print(getattr(tasks, COMMANDS[command]['task']))
                     response_message = f'Command `{command}` received.'
         
         async_to_sync(self.channel_layer.send)(
