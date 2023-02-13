@@ -9,6 +9,10 @@ from django.core.cache import cache
 channel_layer = get_channel_layer()
 
 @shared_task
+def chat(channel_name, message):
+    async_to_sync(channel_layer.send)(channel_name, {"type": "chat.message", "message":message})
+
+@shared_task
 def add(channel_name, x, y):
     print("Add function has been activated")
     message = '{}+{}={}'.format(x, y, int(x) + int(y))
