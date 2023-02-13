@@ -26,7 +26,9 @@ class ChatConsumer(WebsocketConsumer):
 #                     print(getattr(tasks, COMMANDS[command]['task']))
 #                     response_message = f'Command `{command}` received.'
         
-        self.send(text_data=json.dumps({"message": message}))
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name, {"type": "chat_message", "message": message}
+        )
         async_to_sync(self.channel_layer.send)(
                 self.channel_name,
                 {
