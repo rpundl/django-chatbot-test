@@ -37,12 +37,12 @@ for(let i=0; i<8; i++) {
   grid.push(row);
 }
 
-setPiece("queen.png", 2, 1, "white");
-setPiece("king.png", 3, 1, "white");
-setPiece("rook.png", 4, 1, "white");
-setPiece("bishop.png", 5, 1, "white");
-setPiece("knight.png", 6, 1, "white");
-setPiece("pawn.png", 2, 6, "white");
+setPiece("static/chat/queen.png", 2, 1, "white");
+setPiece("static/chat/king.png", 3, 1, "white");
+setPiece("static/chat/rook.png", 4, 1, "white");
+setPiece("static/chat/bishop.png", 5, 1, "white");
+setPiece("static/chat/knight.png", 6, 1, "white");
+setPiece("static/chat/pawn.png", 2, 6, "white");
 
 
 function createSquare(color, x, y){
