@@ -126,7 +126,7 @@ function onDragEnd() {
 
 function setPiece(filename, x, y, color) {
   const piece = Sprite.from(filename);
-  piece.name = filename.substring(0, filename.length - 4)
+  piece.name = filename.substring(12, filename.length - 4)
   piece.location = grid[y][x];
   piece.id = pieceID;
   allPieces.push(piece);
