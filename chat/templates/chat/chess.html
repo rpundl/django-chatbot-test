@@ -5,12 +5,12 @@
     <textarea id="chat-log" cols="100" rows="20" readonly></textarea><br/>
     <input id="chat-message-input" type="text" size="100" placeholder="Type `help` for the commands list."/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
-    
+    <script src="{% static "chat/pixi.min.js" %}"></script>
+    <script src="{% static "chat/app.js" %}"></script>
 {% endblock %}
 
 {% block scripts%}
-<script src="{% static "chat/pixi.min.js" %}"></script>
-<script src="{% static "chat/app.js" %}"></script>
+
 <script>
 //     var wss_protocol = (window.location.protocol == 'https:') ? 'wss://': 'ws://';
 //     var chatSocket = new WebSocket(
