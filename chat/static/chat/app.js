@@ -46,7 +46,7 @@ setPiece("static/chat/pawn.png", 2, 6, "white");
 
 
 function createSquare(color, x, y){
-  let asset = color ? "black.png" : "white.png";
+  let asset = color ? "static/chat/black.png" : "static/chat/white.png";
   const square = Sprite.from(asset);
   square.anchor.set(.5);
   square.position.set(x + 32, y + 32);
